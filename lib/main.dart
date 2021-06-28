@@ -1,7 +1,16 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:forseason/repository/provider.dart';
+import 'package:provider/provider.dart';
+import 'my_test.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    MultiProvider(providers: [
+    ChangeNotifierProvider.value(value: MyProvider())
+  ],
+    child: MyApp(),),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -9,24 +18,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'for : season',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        appBarTheme: AppBarTheme(color: Color(0xFFF4DCDB)),
+        focusColor: Color(0xFFF3C0C0),
+        selectedRowColor: Color(0xFFF3C0C0),
       ),
-      home: Main(),
+      home: MyTest(),
     );
   }
 }
 
-class Main extends StatelessWidget {
-  const Main({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-      ),
-      body:
-    );
-  }
-}
