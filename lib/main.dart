@@ -5,6 +5,8 @@ import 'package:forseason/repository/repository.dart';
 import 'package:forseason/view_model/document_view_model.dart';
 import 'package:provider/provider.dart';
 import 'my_test.dart';
+import 'package:forseason/ui/main/mainpage.dart';
+import 'package:forseason/ui/main/search.dart';
 
 void main() {
   runApp(
@@ -32,3 +34,11 @@ class MyApp extends StatelessWidget {
   }
 }
 
+class Main extends StatelessWidget {
+  const Main({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MainPage();
+  }
+}
