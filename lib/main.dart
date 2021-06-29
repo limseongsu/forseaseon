@@ -1,13 +1,15 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:forseason/repository/provider.dart';
+import 'package:forseason/repository/repository.dart';
+import 'package:forseason/view_model/document_view_model.dart';
 import 'package:provider/provider.dart';
 import 'my_test.dart';
 
 void main() {
   runApp(
     MultiProvider(providers: [
-    ChangeNotifierProvider.value(value: MyProvider())
+    ChangeNotifierProvider.value(value: MyProvider()),
   ],
     child: MyApp(),),
   );

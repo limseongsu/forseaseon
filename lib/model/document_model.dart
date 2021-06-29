@@ -1,8 +1,9 @@
+import 'package:forseason/model/document_input.dart';
 import 'package:forseason/model/user_model.dart';
 
 class Document {
   User user;
-  List<List<String>> document;
+  DocumentInput document;
   bool bookmark;
   int dateTime;
   int favoriteCount;
