@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:forseason/ui/main/mainpage.dart';
+import 'package:forseason/ui/main/search.dart';
 
 void main() {
   runApp(MyApp());
@@ -9,6 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'for : season',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -23,10 +26,6 @@ class Main extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-      ),
-      body:
-    );
+    return MainPage();
   }
 }
