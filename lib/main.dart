@@ -1,12 +1,8 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:forseason/repository/provider.dart';
-import 'package:forseason/repository/repository.dart';
-import 'package:forseason/view_model/document_view_model.dart';
+import 'package:forseason/view/main_page/main_page.dart';
 import 'package:provider/provider.dart';
-import 'my_test.dart';
-import 'package:forseason/ui/main/mainpage.dart';
-import 'package:forseason/ui/main/search.dart';
 
 void main() {
   runApp(
@@ -29,16 +25,7 @@ class MyApp extends StatelessWidget {
         focusColor: Color(0xFFF3C0C0),
         selectedRowColor: Color(0xFFF3C0C0),
       ),
-      home: MyTest(),
+      home: MainPage(),
     );
-  }
-}
-
-class Main extends StatelessWidget {
-  const Main({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MainPage();
   }
 }

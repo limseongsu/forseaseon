@@ -3,6 +3,7 @@ import 'package:forseason/model/user_model.dart';
 import 'package:forseason/repository/provider.dart';
 import 'package:forseason/view/document/document_page.dart';
 import 'package:forseason/view/history_page/history_page.dart';
+import 'package:forseason/view/main_page/main_page.dart';
 import 'package:forseason/view/profile_page/profile_page.dart';
 import 'package:provider/provider.dart';
 import 'drawerhead.dart';
@@ -28,10 +29,11 @@ class _MyDrawerState extends State<MyDrawer> {
           shrinkWrap: true,
           children: [
             NewWidget(user: widget.user),
-            makeTiles(myProvider, 0, Icons.account_circle_outlined, '프로필', MyProfilePge(widget.user)),
-            makeTiles(myProvider, 1, Icons.emoji_people_rounded, '여행기록', MyHistoryPage(widget.user)),
-            makeTiles(myProvider, 2, Icons.people_alt_rounded, '커뮤니티', MyDocumentPage(widget.user)),
-            makeTiles(myProvider, 3, Icons.settings_outlined, '세팅', MyDrawer(widget.user)),
+            makeTiles(myProvider, 0, Icons.vertical_split_outlined, 'For : Seasons', MainPage()),
+            makeTiles(myProvider, 1, Icons.account_circle_outlined, '프로필', MyProfilePge(widget.user)),
+            makeTiles(myProvider, 2, Icons.emoji_people_rounded, '여행기록', MyHistoryPage(widget.user)),
+            makeTiles(myProvider, 3, Icons.people_alt_rounded, '커뮤니티', MyDocumentPage(widget.user)),
+            makeTiles(myProvider, 4, Icons.settings_outlined, '세팅', MyDrawer(widget.user)),
           ],
         ),
       ),
