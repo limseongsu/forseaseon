@@ -31,6 +31,7 @@ dependencies:
   provider: ^5.0.0
   timelines: ^0.1.0
   carousel_slider: ^4.0.0
+  flutter_rating_bar: ^4.0.0
 
 
 dev_dependencies:

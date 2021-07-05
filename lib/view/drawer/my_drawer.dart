@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:forseason/model/user_model.dart';
 import 'package:forseason/repository/provider.dart';
-import 'package:forseason/view/document/document_page.dart';
+import 'package:forseason/view/document_page/document_page.dart';
 import 'package:forseason/view/history_page/history_page.dart';
 import 'package:forseason/view/main_page/main_page.dart';
 import 'package:forseason/view/profile_page/profile_page.dart';

@@ -1,4 +1,4 @@
-import 'package:forseason/model/document_input.dart';
+import 'package:forseason/model/document_input_medel.dart';
 import 'package:forseason/model/user_model.dart';
 
 class Document {

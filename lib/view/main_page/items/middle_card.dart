@@ -1,38 +1,45 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:forseason/model/document_model.dart';
+import 'package:forseason/util/make_star_rating.dart';
 
 class MiddleCard extends StatefulWidget {
   @override
   _MiddleCardState createState() => _MiddleCardState();
 
-  MiddleCard(this.image);
+  MiddleCard(this.document);
 
-  final String image;
+  final Document document;
 }
 
 class _MiddleCardState extends State<MiddleCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Flexible(
-                flex: 4,
-                child: Container(
-                  height: 250,
-                  child: Image.network(widget.image,fit: BoxFit.cover),
-                )),
-            SizedBox(height: 10),
-            Flexible(
-              flex: 1,
-                child: Text('Example')),
-            Padding(
-              padding: const EdgeInsets.only(top: 28.0, bottom: 1),
-              child: Text('someone'),
-            ),
-            Text('Level',style: TextStyle(fontWeight: FontWeight.w400,fontSize: 12)),
-          ],
-        ));
+        child: Padding(
+      padding: const EdgeInsets.all(4.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            height: 80,
+            child: Image.network(widget.document.document.photo,
+                fit: BoxFit.cover),
+          ),
+          SizedBox(height: 4.0,),
+          Expanded(child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                widget.document.document.title,
+                style: TextStyle(),
+              ),
+            ],
+          ),),
+          Text(widget.document.user.name),
+          MakeStarRating(),
+        ],
+      ),
+    ));
   }
 }

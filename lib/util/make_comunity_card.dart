@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:forseason/model/user_model.dart';
-import 'package:forseason/view/document/community_detail.dart';
+import 'package:forseason/view/document_page/community_detail.dart';
 
 InkWell makeCommunityItem(User user, BuildContext context) {
   return InkWell(

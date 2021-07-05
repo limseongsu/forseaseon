@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:forseason/model/document_input.dart';
+import 'package:forseason/model/document_input_medel.dart';
 import 'package:forseason/model/document_model.dart';
 import 'package:forseason/repository/repository.dart';
 import 'package:forseason/view_model/user_view_medel.dart';
@@ -19,14 +19,14 @@ class FakeDocumentRepository extends Repository<Document> {
   final Document document = Document(
       UserViewModel().user,
       DocumentInput('제목', 'text', '안녕하세요 \n안녕하세요 \n안녕하세요 \n안녕하세요 \n안녕하세요 \n안녕하세요 \n안녕하세요 \n안녕하세요 \n안녕하세요 \n안녕하세요 \n안녕하세요 \n안녕하세요 \n안녕하세요 \n안녕하세요 \n안녕하세요 \n안녕하세요 \n안녕하세요 \n안녕하세요 \n안녕하세요 \n안녕하세요 \n안녕하세요 \n안녕하세요 \n안녕하세요 \n안녕하세요 \n안녕하세요 \n안녕하세요 \n안녕하세요 ',
-          'https://lh3.googleusercontent.com/proxy/GLxVv42iyh88I7KfaRWAERZYXZUl4V0OU_t9lWa5SfQNdb_LYi9fKqD-qaBNIBgXbnXhfjbCmZbmD6wWVHWk6cJ9IWQnvl7vhXISkO9QtxFruOk'),
+          'https://image.edaily.co.kr/images/photo/files/NP/S/2020/09/PS20090500039.jpg'),
       false,
       TimeOfDay.minutesPerHour,
       123,
       123);
 
   List<Document> makeDocuments() {
-    List<Document> reselt = [
+    List<Document> result = [
       document,
       document,
       document,
@@ -39,6 +39,6 @@ class FakeDocumentRepository extends Repository<Document> {
       document,
       document,
     ];
-    return reselt;
+    return result;
   }
 }

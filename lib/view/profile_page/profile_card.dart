@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:forseason/model/document_model.dart';
 
-import 'items/top_card.dart';
+import '../main_page/items/top_card.dart';
 
-class RecommendedCards extends StatelessWidget {
-  RecommendedCards(this.document);
+class ProfileCard extends StatelessWidget {
+  ProfileCard(this.document);
 
   final Document document;
 
@@ -12,15 +12,25 @@ class RecommendedCards extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        Align(
+          child: Text('내 글 목록',
+            style: TextStyle(
+                fontSize: 11,
+                fontWeight: FontWeight.bold
+            ),),
+          alignment: Alignment.centerLeft,),
+        SizedBox(
+          height: 8.0,
+        ),
         Container(
           width: 500,
-          height: 220,
+          height: 400,
           child: GridView.builder(
             scrollDirection: Axis.horizontal,
             gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
               maxCrossAxisExtent: 200,
-              childAspectRatio: 3.5 / 3.1,
-              crossAxisSpacing: 20,
+              childAspectRatio: 3.5 / 3.3,
+              crossAxisSpacing: 10,
               mainAxisSpacing: 5,
             ),
             itemCount: 4,

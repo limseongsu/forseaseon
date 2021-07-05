@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:forseason/model/document_model.dart';
 
 import 'items/middle_card.dart';
 
 class MainPageResent extends StatelessWidget {
-  const MainPageResent({
-    Key? key,
-    required this.imgList,
-  }) : super(key: key);
 
-  final List<String> imgList;
+  MainPageResent(this.document);
+
+  final Document document;
 
   @override
   Widget build(BuildContext context) {
@@ -33,9 +32,9 @@ class MainPageResent extends StatelessWidget {
             crossAxisSpacing: 10,
             mainAxisSpacing: 5,
           ),
-          itemCount: imgList.length,
+          itemCount: 10,
           itemBuilder: (BuildContext context, int index) {
-            return MiddleCard(imgList[index]);
+            return MiddleCard(document);
           },
         ),
       ],

@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:forseason/model/document_model.dart';
 
 import 'items/middle_card.dart';
 
 class MainPageTopTopic extends StatelessWidget {
-  const MainPageTopTopic({
-    Key? key,
-    required this.imgList,
-  }) : super(key: key);
+  MainPageTopTopic(this.document);
 
-  final List<String> imgList;
+  final Document document;
 
   @override
   Widget build(BuildContext context) {
@@ -34,12 +32,13 @@ class MainPageTopTopic extends StatelessWidget {
                 crossAxisSpacing: 10,
                 mainAxisSpacing: 5,
               ),
-              itemCount: imgList.length,
+              itemCount: 4,
               itemBuilder: (BuildContext context, int index) {
-                return MiddleCard(imgList[index]);
+                return MiddleCard(document);
               },
             )),
       ],
     );
   }
+
 }
