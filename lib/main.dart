@@ -1,7 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:forseason/repository/provider.dart';
-import 'package:forseason/view/main_page/main_page.dart';
+import 'package:forseason/view/loading_page/loading.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         focusColor: Color(0xFFF3C0C0),
         selectedRowColor: Color(0xFFF3C0C0),
       ),
-      home: MainPage(),
+      home: LoadingPage(),
     );
   }
 }
