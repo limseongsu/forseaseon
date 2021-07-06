@@ -1,4 +1,4 @@
-package com.example.forseason
+package com.twoguys.forseason
 
 import io.flutter.embedding.android.FlutterActivity
 

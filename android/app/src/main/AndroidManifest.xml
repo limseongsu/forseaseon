@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.forseason">
+    package="com.twoguys.forseason">
    <application
         android:label="forseason"
         android:icon="@mipmap/ic_launcher">
