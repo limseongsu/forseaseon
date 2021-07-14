@@ -1,14 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:forseason/model/document_model.dart';
-import 'package:forseason/repository/fake_document_repository.dart';
+import 'package:forseason/repository/repository.dart';
 
 class DocumentViewModel extends ChangeNotifier {
   DocumentViewModel(this.repository);
 
-  final FakeDocumentRepository repository;
+  final Repository<Document> repository;
 
-  List<Document> makeItems() {
-    return repository.makeDocuments();
+  List<Document> makeDocument() {
+    return repository.getAll();
   }
+
+
+
+
 }

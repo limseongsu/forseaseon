@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:forseason/model/user_model.dart';
-import 'package:forseason/repository/provider.dart';
+import 'package:forseason/view_model/provider.dart';
 import 'package:forseason/view/document_page/document_page.dart';
 import 'package:forseason/view/history_page/history_page.dart';
 import 'package:forseason/view/main_page/main_page.dart';
 import 'package:forseason/view/profile_page/profile_page.dart';
+import 'package:forseason/view_model/user_view_medel.dart';
 import 'package:provider/provider.dart';
 import 'drawerhead.dart';
 
 class MyDrawer extends StatefulWidget {
-  MyDrawer(this.user);
-
-  final User user;
 
   @override
   _MyDrawerState createState() => _MyDrawerState();
@@ -20,6 +17,7 @@ class MyDrawer extends StatefulWidget {
 class _MyDrawerState extends State<MyDrawer> {
   @override
   Widget build(BuildContext context) {
+    final user = context.read<UserViewModel>().userRepository.user;
     final myProvider = context.watch<MyProvider>();
 
     return Drawer(
@@ -28,12 +26,12 @@ class _MyDrawerState extends State<MyDrawer> {
         child: ListView(
           shrinkWrap: true,
           children: [
-            NewWidget(user: widget.user),
+            MyDrawerHeader(user: user),
             makeTiles(myProvider, 0, Icons.vertical_split_outlined, 'For : Seasons', MainPage()),
-            makeTiles(myProvider, 1, Icons.account_circle_outlined, '프로필', MyProfilePge(widget.user)),
-            makeTiles(myProvider, 2, Icons.emoji_people_rounded, '여행기록', MyHistoryPage(widget.user)),
-            makeTiles(myProvider, 3, Icons.people_alt_rounded, '커뮤니티', MyDocumentPage(widget.user)),
-            makeTiles(myProvider, 4, Icons.settings_outlined, '세팅', MyDrawer(widget.user)),
+            makeTiles(myProvider, 1, Icons.account_circle_outlined, '프로필', MyProfilePge(user)),
+            makeTiles(myProvider, 2, Icons.emoji_people_rounded, '여행기록', MyHistoryPage(user)),
+            makeTiles(myProvider, 3, Icons.people_alt_rounded, '커뮤니티', MyDocumentPage(user)),
+            makeTiles(myProvider, 4, Icons.settings_outlined, '세팅', MyDrawer()),
           ],
         ),
       ),

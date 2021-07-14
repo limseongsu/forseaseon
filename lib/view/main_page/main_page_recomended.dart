@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:forseason/model/document_model.dart';
 
-import 'items/top_card.dart';
+import 'items/recommended_card.dart';
 
 class RecommendedCards extends StatelessWidget {
-  RecommendedCards(this.document);
+  RecommendedCards(this.documents);
 
-  final Document document;
+  final List<Document> documents;
 
   @override
   Widget build(BuildContext context) {
+    //여기에 도큐먼트 리스트 넣기
     return Column(
       children: [
         Container(
@@ -23,9 +24,9 @@ class RecommendedCards extends StatelessWidget {
               crossAxisSpacing: 20,
               mainAxisSpacing: 5,
             ),
-            itemCount: 4,
+            itemCount: documents.length,
             itemBuilder: (BuildContext context, int index) {
-              return TopCard(document);
+              return RecommendedCard(documents[index]);
             },
           ),
         ),

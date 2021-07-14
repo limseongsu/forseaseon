@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:forseason/model/user_model.dart';
-import 'package:forseason/view/main_page/main_page_recomended.dart';
-import 'package:forseason/view_model/document_view_model.dart';
-import 'package:provider/provider.dart';
 
 class ProfileMyInfo extends StatelessWidget {
   const ProfileMyInfo({
@@ -15,10 +12,6 @@ class ProfileMyInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    final repository = context.read<DocumentViewModel>().repository;
-
-    ScrollController controller = ScrollController();
-
     return Column(
       children: [
         SizedBox(
@@ -26,7 +19,7 @@ class ProfileMyInfo extends StatelessWidget {
         ),
         Center(
             child: Text(
-          user.name,
+          user.name!,
           style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         )),
         SizedBox(
@@ -50,7 +43,7 @@ class ProfileMyInfo extends StatelessWidget {
             Expanded(
                 flex: 7,
                 child: Text(
-                  user.name,
+                  user.name!,
                   style: TextStyle(fontSize: 11),
                 )),
           ],
@@ -69,7 +62,7 @@ class ProfileMyInfo extends StatelessWidget {
             Expanded(
                 flex: 7,
                 child: Text(
-                  user.email,
+                  user.email!,
                   style: TextStyle(fontSize: 11),
                 )),
           ],
@@ -88,7 +81,7 @@ class ProfileMyInfo extends StatelessWidget {
             Expanded(
                 flex: 7,
                 child: Text(
-                  user.coment,
+                  user.comment!,
                   style: TextStyle(fontSize: 11),
                 )),
           ],

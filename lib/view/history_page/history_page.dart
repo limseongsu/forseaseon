@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:forseason/model/user_model.dart';
-import 'package:forseason/repository/fake_document_repository.dart';
 import 'package:forseason/view/drawer/my_drawer.dart';
 import 'package:timelines/timelines.dart';
 
@@ -18,7 +17,7 @@ class MyHistoryPage extends StatelessWidget {
     // FakeDocumentRepository repository = FakeDocumentRepository();
 
     return Scaffold(
-      drawer: MyDrawer(user),
+      drawer: MyDrawer(),
       appBar: AppBar(
         centerTitle: true,
         title: Text('내 여행 기록',

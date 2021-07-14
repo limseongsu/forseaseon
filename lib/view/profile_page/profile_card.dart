@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:forseason/model/document_model.dart';
 
-import '../main_page/items/top_card.dart';
+import '../main_page/items/recommended_card.dart';
 
 class ProfileCard extends StatelessWidget {
-  ProfileCard(this.document);
+  ProfileCard(this.documents);
 
-  final Document document;
+  final List<Document> documents;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class ProfileCard extends StatelessWidget {
             ),
             itemCount: 4,
             itemBuilder: (BuildContext context, int index) {
-              return TopCard(document);
+              return RecommendedCard(documents[index]);
             },
           ),
         ),

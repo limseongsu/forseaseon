@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:forseason/model/user_model.dart';
-import 'package:forseason/repository/fake_document_repository.dart';
 import 'package:forseason/view/drawer/my_drawer.dart';
-import 'package:forseason/view/main_page/main_page_recomended.dart';
 import 'package:forseason/view/profile_page/profile_card.dart';
 import 'package:forseason/view/profile_page/profile_image.dart';
 import 'package:forseason/view/profile_page/profile_my_info.dart';
+import 'package:forseason/view_model/document_view_model.dart';
+import 'package:provider/provider.dart';
 
 class MyProfilePge extends StatelessWidget {
   MyProfilePge(this.user);
@@ -14,10 +14,9 @@ class MyProfilePge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final repository = FakeDocumentRepository();
-
+  final documents = context.read<DocumentViewModel>().repository.getAll();
     return Scaffold(
-      drawer: MyDrawer(repository.document.user),
+      drawer: MyDrawer(),
       appBar: AppBar(
         centerTitle: true,
         title: Text(
@@ -32,7 +31,7 @@ class MyProfilePge extends StatelessWidget {
             children: [
               ProfilImage(user: user),
               ProfileMyInfo(user: user),
-              ProfileCard(repository.document)
+              ProfileCard(documents)
             ],
           ),
         ),

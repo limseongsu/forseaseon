@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:forseason/model/document_model.dart';
 import 'package:forseason/model/user_model.dart';
 import 'package:forseason/view/document_page/community_detail.dart';
 
-InkWell makeCommunityItem(User user, BuildContext context) {
+InkWell makeCommunityItem(User user, BuildContext context, Document document) {
   return InkWell(
     onTap: () {
-      Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => CommunityDetailPage(user)));
+      Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => CommunityDetailPage(document)));
     },
     child: Container(
       margin: EdgeInsets.all(8.0),
@@ -28,7 +29,7 @@ InkWell makeCommunityItem(User user, BuildContext context) {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: CircleAvatar(
-              backgroundImage: NetworkImage(user.profileUrl),
+              backgroundImage: NetworkImage(user.profileUrl!),
             ),
           ),
           Column(

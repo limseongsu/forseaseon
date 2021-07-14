@@ -1,21 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:forseason/model/user_model.dart';
-import 'package:forseason/repository/fake_document_repository.dart';
+import 'package:forseason/model/document_model.dart';
 import 'package:forseason/view/drawer/my_drawer.dart';
 
 class CommunityDetailPage extends StatelessWidget {
 
-  CommunityDetailPage(this.user);
+  CommunityDetailPage(this.document);
 
-  final User user;
+  final Document document;
 
   @override
   Widget build(BuildContext context) {
     ScrollController _controller = ScrollController();
-    FakeDocumentRepository repository = FakeDocumentRepository();
     return Scaffold(
-        drawer: MyDrawer(repository.document.user),
+        drawer: MyDrawer(),
         appBar: AppBar(
           centerTitle: true,
           title: Text(
@@ -33,19 +31,19 @@ class CommunityDetailPage extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  CircleAvatar(backgroundImage: NetworkImage(user.profileUrl),),
+                  CircleAvatar(backgroundImage: NetworkImage(document.user!.profileUrl!),),
                   SizedBox(width: 16,),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('제목',
+                      Text(document.documentInput![0].text!,
                       style: TextStyle(
                         fontWeight: FontWeight.bold
                       ),),
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          Text('이름', style: TextStyle(fontSize: 11, fontWeight: FontWeight.w500), textAlign: TextAlign.end,),
+                          Text(document.user!.name!, style: TextStyle(fontSize: 11, fontWeight: FontWeight.w500), textAlign: TextAlign.end,),
                           SizedBox(width: 4,),
                           Text('시간', style: TextStyle(fontSize: 8), textAlign: TextAlign.center,),
                           SizedBox(width: 4,),
@@ -70,12 +68,12 @@ class CommunityDetailPage extends StatelessWidget {
               SizedBox(height: 8,),
               ClipRRect(
                 borderRadius: BorderRadius.circular(20),
-                child: Image.network(repository.document.document.photo,
+                child: Image.network(document.documentInput![2].text!,
                   fit: BoxFit.contain,
                 ),
               ),
               SizedBox(height: 8,),
-              Text(repository.document.document.text,
+              Text(document.documentInput![1].text!,
               style: TextStyle(
                 height: 2,
                 fontSize: 11,

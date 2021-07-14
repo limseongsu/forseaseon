@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:forseason/model/document_input_medel.dart';
-import 'package:forseason/model/document_model.dart';
 import 'package:forseason/model/user_model.dart';
 import 'package:forseason/view/drawer/my_drawer.dart';
-import 'package:forseason/view_model/user_view_medel.dart';
 
 import 'community_tab.dart';
 
@@ -15,18 +12,10 @@ class MyDocumentPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    final Document document = Document(
-        UserViewModel().user,
-        DocumentInput('제목', 'text', '안녕하세요', ''),
-        false,
-        TimeOfDay.minutesPerHour,
-        123,
-        123);
-
     return DefaultTabController(
         length: 3,
         child: Scaffold(
-            drawer: MyDrawer(document.user),
+            drawer: MyDrawer(),
             appBar: AppBar(
               centerTitle: true,
               title: Text(

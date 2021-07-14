@@ -3,8 +3,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:forseason/model/user_model.dart';
 
-class NewWidget extends StatelessWidget {
-  const NewWidget({
+class MyDrawerHeader extends StatelessWidget {
+  const MyDrawerHeader({
     Key? key,
     required this.user,
   }) : super(key: key);
@@ -27,7 +27,7 @@ class NewWidget extends StatelessWidget {
                     height: 230,
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                          image: NetworkImage(user.profileUrl),
+                          image: NetworkImage(user.profileUrl!),
                           fit: BoxFit.cover
                       ),
                     ),
@@ -43,11 +43,11 @@ class NewWidget extends StatelessWidget {
                       children: [
                         CircleAvatar(
                           radius: 30.0,
-                          backgroundImage: NetworkImage(user.profileUrl),
+                          backgroundImage: NetworkImage(user.profileUrl!),
                         ),
                         SizedBox(height: 8.0,),
-                        Text(user.name),
-                        Text(user.email),
+                        Text(user.name!),
+                        Text(user.email!),
                       ],
                     ),
                   ),

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:forseason/model/user_model.dart';
+import 'package:forseason/repository/fake_document_input_repository.dart';
 import 'package:forseason/repository/fake_document_repository.dart';
+import 'package:forseason/repository/fake_user_repository.dart';
 import 'package:forseason/view/drawer/my_drawer.dart';
+import 'package:forseason/view_model/document_view_model.dart';
+import 'package:provider/provider.dart';
 import 'main_page_recomended.dart';
 import 'main_page_resent.dart';
 import 'main_page_tool_bar.dart';
@@ -16,19 +19,32 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
 
+  @override
+  void initState() {
+    super.initState();
+    FakeDocumentRepository().getAll();
+    FakeDocumentInputRepository().getAll();
+    FakeUserRepository().getUser();
+  }
+
   final _dropList = ['spring', 'summer', 'autumn', 'winter'];
+
   var _dropSelect = 'spring';
 
   @override
   Widget build(BuildContext context) {
-  SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
-  FakeDocumentRepository repository =FakeDocumentRepository();
+    SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
+    final documents = context.read<DocumentViewModel>().repository.getAll();
+
     return Scaffold(
-      drawer: MyDrawer(repository.document.user),
+      drawer: MyDrawer(),
       appBar: buildAppBar(context),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {  },
-        child: Icon(Icons.add, color: Colors.black,),
+        onPressed: () {},
+        child: Icon(
+          Icons.add,
+          color: Colors.black,
+        ),
         backgroundColor: Color(0xFFF4DCDB),
       ),
       body: SingleChildScrollView(
@@ -40,16 +56,18 @@ class _MainPageState extends State<MainPage> {
               MainToolBar(_dropList, _dropSelect),
               Row(
                 children: [
-                  SizedBox(width: 4,),
+                  SizedBox(
+                    width: 4,
+                  ),
                   Text(
                     'Recommended',
                     style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
-              RecommendedCards(repository.document),
-              MainPageTopTopic(repository.document),
-              MainPageResent(repository.document),
+              RecommendedCards(documents),
+              MainPageTopTopic(documents),
+              MainPageResent(documents),
             ],
           ),
         ),
@@ -80,10 +98,3 @@ class _MainPageState extends State<MainPage> {
     );
   }
 }
-
-
-
-
-
-
-

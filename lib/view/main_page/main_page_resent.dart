@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:forseason/model/document_model.dart';
+import 'package:forseason/view/main_page/items/resent_card.dart';
 
-import 'items/middle_card.dart';
 
 class MainPageResent extends StatelessWidget {
 
-  MainPageResent(this.document);
+  MainPageResent(this.documents);
 
-  final Document document;
+  final List<Document> documents;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class MainPageResent extends StatelessWidget {
           ),
           itemCount: 10,
           itemBuilder: (BuildContext context, int index) {
-            return MiddleCard(document);
+            return ResentCards(documents[index]);
           },
         ),
       ],
