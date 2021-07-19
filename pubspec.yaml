@@ -31,6 +31,12 @@ dependencies:
   provider: ^5.0.0
   timelines: ^0.1.0
   easy_splash_screen: ^1.0.3
+  kakao_flutter_sdk: ^0.6.4
+  dio: ^4.0.0
+  json_annotation: ^4.0.1
+  package_info: ^2.0.0
+  platform: ^3.0.0
+  shared_preferences: ^2.0.5
 
 
 dev_dependencies:

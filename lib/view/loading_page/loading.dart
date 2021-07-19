@@ -15,6 +15,7 @@ class _LoadingPageState extends State<LoadingPage> {
     return Scaffold(
       body: EasySplashScreen(
         backgroundImage: AssetImage('assets/loading.gif'),
+        //중간 로고를 꼭 넣어야되서 투명처리해서 안보이게 함.
         logo: Image.asset('assets/loading_1.png', color: Colors.transparent,),
         navigator: LoginPage(),
         durationInSeconds: 3,
